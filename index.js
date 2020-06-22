@@ -1,5 +1,10 @@
 function fetchBooks() {
-
+  return fetch("https://anapioficeandfire.com/api/books")
+    .then(function(response) {
+      return response.json();
+    }).then(function(json) {
+      renderBooks(json)
+    })
 }
 
 function renderBooks(books) {
@@ -14,3 +19,5 @@ function renderBooks(books) {
 document.addEventListener('DOMContentLoaded', function() {
   fetchBooks()
 })
+
+//why are the tests referencing a function called getPosts
